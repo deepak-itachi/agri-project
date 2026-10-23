@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://agri.com/soap/farmer"
+           targetNamespace="http://agri.com/soap/farmer"
+           elementFormDefault="qualified">
+
+    <!-- Request: farmer sends their basic land/experience details -->
+    <xs:element name="farmerRequirementRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="landSizeSqft" type="xs:double"/>
+                <xs:element name="landType" type="tns:landType"/>
+                <xs:element name="location" type="xs:string"/>
+                <xs:element name="budgetInRupees" type="xs:double"/>
+                <xs:element name="experienceLevel" type="tns:experienceLevel"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response: classification + scale recommendation -->
+    <xs:element name="farmerRequirementResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="farmerCategory" type="xs:string"/>
+                <xs:element name="scale" type="xs:string"/>
+                <xs:element name="recommendationNote" type="xs:string"/>
+                <xs:element name="suggestedFarmingMethod" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="landType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OPEN_FIELD"/>
+            <xs:enumeration value="TERRACE"/>
+            <xs:enumeration value="BACKYARD"/>
+            <xs:enumeration value="ROOFTOP_CONTAINER"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="experienceLevel">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="BEGINNER"/>
+            <xs:enumeration value="HOBBYIST"/>
+            <xs:enumeration value="SERIOUS"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
