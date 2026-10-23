@@ -158,3 +158,4 @@ Edit one line in `frontend/src/brand.js` (`name`). Backend API docs title is in 
 ### Notes
 - Uploaded product photos are stored on the backend's disk under `uploads/`. On Cloud Run use a mounted bucket or object storage, because container disks are temporary.
 - Crop reference material: TNAU Agritech Portal https://agritech.tnau.ac.in/
+"# agri-project" 
